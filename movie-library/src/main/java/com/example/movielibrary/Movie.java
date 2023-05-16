@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Movie {
+public class Movie {   //class represent retriving from database
     private int id;
     private String name;
     private int rating;
