@@ -18,7 +18,7 @@ public class MovieRepository { //class responsible to communcation from database
     }
 
     public Movie getById(int id){ //methode to return one movie from db
-        return jdbcTemplate.queryForObject("SELECT id FROM movie, name ,rating WHERE id = ?",
+        return jdbcTemplate.queryForObject("SELECT id, name, rating FROM movie WHERE id = ?",
                 BeanPropertyRowMapper.newInstance(Movie.class), id);
 
     }
