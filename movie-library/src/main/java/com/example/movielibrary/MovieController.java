@@ -12,7 +12,7 @@ public class MovieController {
     @Autowired
     MovieRepository movieRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Movie> getAll() {
         return movieRepository.getAll();
     }
@@ -22,9 +22,10 @@ public class MovieController {
         return movieRepository.getById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
         public int add(@RequestBody List<Movie> movies) {
             return movieRepository.save(movies);
-
         }
+
+
     }

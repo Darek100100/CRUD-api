@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.List;
 
 @Repository
-public class MovieRepository { //class responsible to communcation from database
+public class MovieRepository { //class responsible to communication from database
     @Autowired
     JdbcTemplate jdbcTemplate;
     public List<Movie> getAll() {  //methode to return all from db
@@ -26,6 +26,12 @@ public class MovieRepository { //class responsible to communcation from database
                 movie.getName(),movie.getRating()
         ));
         return 1;
+    }
+
+    public int update(Movie movie) {
+        return jdbcTemplate.update("UPDATE movie SET name=?, rating=? WHERE id=?",
+                movie.getName(), movie.getRating(), movie.getRating());
+
     }
 
 }
