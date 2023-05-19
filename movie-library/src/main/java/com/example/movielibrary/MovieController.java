@@ -27,5 +27,19 @@ public class MovieController {
             return movieRepository.save(movies);
         }
 
+    @PutMapping("/{id}")
+        public int update(@PathVariable("id") int id, @RequestBody Movie updateMovie) {
+        Movie movie = movieRepository.getById(id);
 
+        if(movie != null) {
+            movie.setName(updateMovie.getName());
+            movie.setRating(updateMovie.getRating());
+
+            movieRepository.update(movie);
+
+            return 1;
+        } else {
+            return -1;
+        }
     }
+ }
